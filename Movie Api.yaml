@@ -10,39 +10,28 @@ paths:
   /auth:
     parameters: []
     post:
-      summary: ''
-      operationId: auth
+      summary: 'The route to log in a user'
+      operationId: post-auth
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                description: ''
                 type: object
-                x-examples:
-                  example-1:
-                    token: sdffertrtertrrtytrshghghfghfhsgdfdfbhfghfghfxhfghtrtytrywefdswewqeqrr
                 properties:
                   token:
                     type: string
-                required:
-                  - token
               examples:
-                example-1:
+                Users token:
                   value:
-                    token: string
-      description: Logs in a new user
-      x-internal: false
+                    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywibmFtZSI6IkJhc2ljIFRob21hcyIsInJvbGUiOiJiYXNpYyIsImlhdCI6MTY0NTYzNDk5NywiZXhwIjoxNjQ1NjM2Nzk3LCJpc3MiOiJodHRwczovL3d3dy5uZXRndXJ1LmNvbS8iLCJzdWIiOiIxMjMifQ.QYeqCeTqVUNBtqvt2P0JyHiRF1dAnKbCOjNHrPHNEso
+      description: Logs in a user
       requestBody:
         content:
           application/json:
             schema:
-              description: ''
               type: object
-              x-examples:
-                example-1:
-                  username: basic-thomas
               properties:
                 username:
                   type: string
@@ -52,15 +41,15 @@ paths:
                 - username
                 - password
             examples:
-              Log in user:
+              The details of the user:
                 value:
                   username: basic-thomas
                   password: sR-_pcoow-27-6PAwCD8
-        description: The body of the request
+        description: The log in details of the user
   /movies:
     parameters: []
     get:
-      summary: ''
+      summary: 'The route to fetch all movies'
       operationId: get-movies
       responses:
         '200':
@@ -100,7 +89,7 @@ paths:
       description: Get all the saved movies.
       parameters: []
     post:
-      summary: ''
+      summary: 'The route to create new movie'
       operationId: post-movies
       responses:
         '200':
