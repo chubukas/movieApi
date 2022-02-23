@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: MOVIES
+  version: '1.0'
+  summary: API for movies
+  description: API for movies
+servers:
+  - url: 'http://localhost:5000'
+paths:
+  /auth:
+    parameters: []
+    post:
+      summary: ''
+      operationId: auth
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    token: sdffertrtertrrtytrshghghfghfhsgdfdfbhfghfghfxhfghtrtytrywefdswewqeqrr
+                properties:
+                  token:
+                    type: string
+                required:
+                  - token
+              examples:
+                example-1:
+                  value:
+                    token: string
+      description: Logs in a new user
+      x-internal: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  username: basic-thomas
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+            examples:
+              Log in user:
+                value:
+                  username: basic-thomas
+                  password: sR-_pcoow-27-6PAwCD8
+        description: The body of the request
+  /movies:
+    parameters: []
+    get:
+      summary: ''
+      operationId: get-movies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: number
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                        userId:
+                          type: string
+                        Title:
+                          type: string
+                        Released:
+                          type: string
+                        Genre:
+                          type: string
+                        Director:
+                          type: string
+                        createdAt:
+                          type: string
+                        updatedAt:
+                          type: string
+      description: Get all the saved movies.
+      parameters: []
+    post:
+      summary: ''
+      operationId: post-movies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: number
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      userId:
+                        type: string
+                      Title:
+                        type: string
+                      Released:
+                        type: string
+                      Genre:
+                        type: string
+                      Director:
+                        type: string
+                      _id:
+                        type: string
+                      createdAt:
+                        type: string
+                      updatedAt:
+                        type: string
+      description: Create a new movie
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: authorization
+          description: It holds the authorization Bearer Token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+            examples:
+              Save the movie title to database:
+                value:
+                  title: Intricate
+components:
+  schemas: {}
