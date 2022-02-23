@@ -7,6 +7,10 @@ on:
       branches: [ main ]
 
     workflow_dispatch:
+      
+env:
+  ## Sets environment variable
+ JWT_SECRET: thisasercetserviceannunicement
 
 jobs:
   build:
