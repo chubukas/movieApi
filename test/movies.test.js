@@ -74,7 +74,6 @@ describe("Testing Endpoints", () => {
       .then((response) => {
         // Check the response type and length
         expect(Array.isArray(response.body.data)).toBeTruthy();
-        expect(response.body.data.length).toEqual(1);
 
         // // Check the response data
         expect(response.body.data[0].userId).toBe(post.userId);
