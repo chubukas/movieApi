@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  app:
+    command: node src/server.js
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - published: ${APP_PORT:-3000}
+        target: 3000
+    volumes:
+      - .:/app/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      APP_PORT: ${APP_PORT}
+      DATABASE: ${DATABASE}
+      DATABASE_LOCAL: ${DATABASE_LOCAL}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      NODE_ENV: ${NODE_ENV}
