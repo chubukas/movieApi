@@ -14,15 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - name: Use github checkout action verson three
+        uses: actions/checkout@v3
       - name: Use Node.js
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: '14.x'
       - name: Install dependencies
-      - run: npm install
+        run: npm install
       - name: Run test
-      - run: npm test
+        run: npm test
   
   deploy:
     runs-on: ubuntu-latest
@@ -30,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use heroku-deploy version3 developedby akhileshns
-      - uses: akhileshns/heroku-deploy@v3.12.12 
+        uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "moviesapinode" #Must be unique in Heroku
