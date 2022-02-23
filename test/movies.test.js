@@ -23,7 +23,7 @@ beforeAll((done) => {
 
 beforeEach((done) => {
   mongoose.connect(
-    "mongodb+srv://themidlman:themidlman123@cluster1.mwaqa.mongodb.net/moviestest?retryWrites=true&w=majority",
+    "mongodb+srv://chubukas:student55@cluster0.2sqst.mongodb.net/moviestest?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => done()
   );
@@ -74,6 +74,7 @@ describe("Testing Endpoints", () => {
       .then((response) => {
         // Check the response type and length
         expect(Array.isArray(response.body.data)).toBeTruthy();
+        expect(response.body.data.length).toEqual(1);
 
         // // Check the response data
         expect(response.body.data[0].userId).toBe(post.userId);
