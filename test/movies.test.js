@@ -23,7 +23,7 @@ beforeAll((done) => {
 
 beforeEach((done) => {
   mongoose.connect(
-    "mongodb://localhost:27017/moviesearchtest",
+    "mongodb+srv://themidlman:themidlman123@cluster1.mwaqa.mongodb.net/moviestest?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => done()
   );
