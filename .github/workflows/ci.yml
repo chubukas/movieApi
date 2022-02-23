@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Use github checkout action verson three
-        uses: actions/checkout@v3
+      - name: Use github checkout action verson two
+        uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
